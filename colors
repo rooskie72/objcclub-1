@@ -1,0 +1,102 @@
+<!--  something new....
+
+    the line:
+    document.getElementById('zebra').innerHTML = 'Goodbye';
+
+    goes and finds the 'zebra' element (the div lower in the page) and changes the html inside of it...
+
+    so you could even put a link in there, or a picture, etc...
+
+
+    to see how this is used in the real world... check out a site I recently made... it is at:
+
+    westwindstmarys.com
+
+    when you click on 'about', 'private events', or 'directions' it changes the innerHTML of a lower div...
+
+    by the way, all of this stuff is usually CaSE SenSITIve
+  -->
+
+<html>
+<head>
+
+                <script type="text/javascript">
+                
+                //USERNAME STUFF
+                var $user_name = ('Please Enter Your username');
+                function keysToTheBuisnac()
+                {
+                $user_name = (document.getElementById("username").value);
+                
+                if (document.getElementById("username").value == 'Enter Your Username') {alert('ENTER A USER NAME');} else{
+                if (document.getElementById("username").value == '') {alert('ENTER A USER NAME');} else{
+                if (document.getElementById("username").value == 'Jess') {alert('HELLO MASTER! (admin)');} else{alert('Hello ' + $user_name + '!')};
+                }
+                }
+                }
+                //DO WHAT I WANT!! DO IT NOW
+                function overkill()
+                {
+                document.getElementById("jess").innerHTML = 'HELLO I AM JESS!!!!!!!!!!!!!!!';
+                }
+
+                var $j = 'hello';
+                function popcorn()
+                {
+                alert($j);
+                }
+
+
+                function adios()
+                {
+                    //RANDOM COLORS YEEEEEAAAHHHH!!
+                var $rcolor = Math.floor((Math.random()*4));
+
+                if ($rcolor == 2) {document.getElementById("zebra").style.color= "red";}
+                else{if ($rcolor == 3) {document.getElementById("zebra").style.color= "yellow";} 
+                else{document.getElementById("zebra").style.color= "blue";};};
+                                
+
+                //by putting these slashes in, I have commented out this code, so it will
+                //not have any effect:
+                //document.getElementById('zebra').innerHTML = 'Goodbye';
+                }
+
+                function oldYeller()
+                {
+                
+                document.getElementById("zebra").style.color="yellow";
+                }
+
+                function sunShine(){
+
+                document.getElementById("zebra").innerHTML = '<img src="http://doubtfulnews.com/wp-content/uploads/2013/01/sunshine.png">';
+                }
+
+
+                
+
+                </script>
+</head>
+
+        <body>
+                <input type="button" value="JessButton" onclick="overkill();">
+
+                <input type="button" value="Hello" onclick="popcorn();">
+
+                <input type="button" value="RandomColors" onclick="adios();">
+
+                <input type="button" value="Yellooooww" onclick="oldYeller();">
+
+                <input type="button" value="Sunshine" onclick="sunShine();">
+
+                <input type="field" value="Enter Your Username" id="username";>
+
+                <input type="button" value="ChrisIsNotChrist" onclick="keysToTheBuisnac();">
+
+<!--  CHECK IT OUT: In the line below, James changed my original colors of red text on a black background to cyan text on a limegreen background.  -->
+<div  id="zebra" style="color:cyan;background-color:limegreen;font-size:200px;">Objective C Club</div>
+ 
+        </body>
+
+</html>
