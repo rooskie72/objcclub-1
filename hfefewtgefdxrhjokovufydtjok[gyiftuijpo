@@ -1,0 +1,81 @@
+<html>
+<head>
+</head>
+<body>
+
+ <script type="text/javascript">
+ //<script type="text/javascript"> is how we tell the webpage what we are using
+
+   document.write("what is going on?");
+//document.write("example") is used to write stuff
+	document.write("this is cool");
+// the ; means that you can state the "next step"
+
+	var x = 23;
+	document.write(x);
+// variables are place holders	EX.(x=ham) (i love x) (x comes from a pig)
+// can use a letter or _ (underscore) at the start of the variable
+// variables cause use any type of numbers and any "String" of text
+// addition (+) signs work in variables
+
+	var chicken = 300.35236;
+	document.write(chicken);
+
+	var y = "text in here"
+	document.write(y)
+
+	var z = "jake said ,\"boy do i love bessie \" ";
+	document.write(z)
+
+	var name ="james";
+	var age ="16";
+	document.write(name + " is my name and my age is" + age);
+
+//functions
+//popup
+
+function funky() {
+	alert("ouch!!!!");
+}
+
+function meatball(b) {
+	alert("i love " + b);
+}
+
+meatball("bacon");
+meatball("ham");
+meatball("chicken");
+
+	function apples(one, two){
+		document.write(one + " is better then" + two );
+		}
+
+apples("james", " joe");
+
+	function addnumbers(a, b){
+		var c=a+b;
+		return c;
+	}
+
+	document.write(addnumbers(3,6));
+
+	
+
+	function first(){
+		document.write("1st");
+			second()
+		}
+	function second(){
+		document.write("2nd");
+			first()
+		}
+
+//<form> has to be out of script. type=what it is value=what the type says onlick=what function we are using
+ </script>
+
+ <form>
+ <input type"button" value="poke me" onclick="funky()">
+ </form>
+
+</body>
+</html>
