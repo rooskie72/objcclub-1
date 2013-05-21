@@ -1,0 +1,598 @@
+<SCRIPT>
+
+/*
+By Michael Dillon  drevil_nz@hotmail.com
+Featured on JavaScript Kit (http://javascriptkit.com)
+For this and over 400+ free scripts, visit http://javascriptkit.com
+*/
+
+var val=""
+var counter="0"
+themessage=new Array()
+themessage[0]="George, you have an amazing body and a wonderful personality. Would you marry me?"
+themessage[1]="Wow, George, I never realised what a freakin guru you were! Keep it up dude!"
+themessage[2]="You're everything I have ever wanted in a man."
+themessage[3]="I love your way with words, your pictures are fantastic, and you are modest, too, which is very rare in guys these days."
+themessage[4]="Rumour has it that you are in fact a bit of a sex god. Can you confirm that?"
+themessage[5]="Oh George, you are such a stud! Who would have thought a nice guy like yourself would be so well-hung?"
+themessage[6]="I love you. You're the greatest...I want to have your baby."
+themessage[7]="George, you are truly wonderful. I really have to meet you someday."
+themessage[8]="You know, when I get to meet you in person the first thing I am going to do is give you all my money, seeing as you are so cool."
+themessage[9]="Will you be my best man? I know you don't know me and stuff, but I would be honoured, I really would."
+themessage[10]="Gosh, George, you get me so hot just looking at you...oh, I can't believe I just typed that!"
+themessage[11]="You look really familiar...are you a supermodel or something?"
+themessage[12]="Hey, George, I was wondering...if you're not doing anything tonight...um, would you wanna see a movie?"
+themessage[13]="Do you sleep on your stomach, George? Can I?"
+themessage[14]="I never thought I could love someone I didn't know...but you have proved me wrong."
+themessage[15]="You're bad to the bone, b-b-b-b-bad, b-b-b-b-b-bad."
+themessage[16]="You are seriously the nicest guy I have ever known. The way you make me feel is just out of this world."
+themessage[17]="Was your father a terrorist, George? Because you da bomb."
+themessage[18]="It's almost like you control my words, that's how much power you have over me..."
+themessage[19]="I really dig you, George, I dig you with a big spade...I'll pay if that's what it takes."
+
+x=Math.floor(Math.random()*themessage.length)
+
+function changer(){
+if(counter>=themessage[x].length){return false}
+else{
+val+=themessage[x].charAt(counter)
+document.myform.mytext.value=val
+counter++
+return false
+}
+}
+function resetit(){
+alert("Thanks for your feedback. You really are too nice.")
+document.myform.mytext.value=""
+counter="0"
+val=""
+x=Math.floor(Math.random()*themessage.length)
+}
+
+</SCRIPT>
+
+<DIV align=left>
+<TABLE height=182 cellSpacing=0 cellPadding=0 width=542 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=542 height=182><FONT face=Arial>
+      <FORM name=myform>
+      <P><SMALL>Type in here:</SMALL></FONT></P>
+      <P><FONT face=Arial><TEXTAREA onkeypress="return changer()" name=mytext rows=10 wrap=virtual cols=40></TEXTAREA><BR><BR><INPUT onclick=resetit() type=button value="Submit Feedback"></FONT></P></FORM></TD></TR></TBODY></TABLE>
+</DIV>
+
+<p align="center"><font face="arial" size="-2">This free script provided by</font><br>
+<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
+Kit</a></font></p></textarea></p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- ;
+// numberguess is by Lancer - written 4 Jan 1999
+// lancer@kp.planet.gen.nz
+
+var guessme=Math.round(Math.random()*(99)+1);
+var speech='Guess my number (from 1 to 100)';
+
+function process(mystery) {
+var guess=document.forms.guessquiz.guess.value;
+var speech='"'+guess+ '" does not make sense to me.';
+document.forms.guessquiz.guess.value='';
+
+if (guess==mystery)
+{
+document.forms.guessquiz.prompt.value='Congratulations! '+mystery+' is correct!';
+alert ('Well done - the mystery number is '+mystery+'! \n\nPress this button to reload the page for another game.');
+speech='';
+document.location=document.location;
+}
+
+if (mystery<guess)
+{
+speech='Less than '+ guess;
+}
+
+if (mystery>guess)
+{
+speech='Greater than '+ guess;
+}
+
+if (guess=='')
+{
+speech='You didn\'t guess anything!'
+}
+
+document.forms.guessquiz.prompt.value=speech; document.forms.guessquiz.guess.focus();
+
+}
+
+// end hide -->
+</SCRIPT>
+
+<FORM onSubmit="" NAME="guessquiz">
+<CENTER>
+<TABLE ALIGN="CENTER" BGCOLOR="#888888" BORDER="3" CELLPADDING="5">
+<TR>
+<TD BGCOLOR="#004080">
+<FONT COLOR="#ffffff" FACE="Arial"><B>GUESS MY NUMBER (1 - 100)</B></FONT>
+</TD>
+</TR>
+<TR>
+<TD>
+<CENTER>
+<INPUT TYPE="text" NAME="prompt" SIZE="31" MAXLENGTH="40" VALUE="Guess my number (from 1 to 100)"><BR>
+<INPUT TYPE="text" NAME="guess" SIZE="3" MAXLENGTH="3" VALUE="">
+<INPUT TYPE="button" VALUE="Guess" onClick='process(guessme)'>
+</CENTER>
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+</FORM>
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="javascript">
+
+/*
+Script by Mike Mcgrath- http://website.lineone.net/~mike_mcgrath
+Featured on JavaScript Kit (http://javascriptkit.com)
+For this and over 400+ free scripts, visit http://javascriptkit.com
+*/
+
+var alpha=new Array();
+var alpha_index=0;
+
+var bravo=new Array();
+var bravo_index=0;
+
+var running=0;
+var failnum=0;
+var advising=0;
+
+function pick()
+{
+  var choice="";
+  var blank=0;
+ 
+  for (i=0; i<words[index].length; i++)
+  {
+    t=0;
+    for(j=0; j<=alpha_index; j++) 
+    if(words[index].charAt(i)==alpha[j] || words[index].charAt(i)==alpha[j].toLowerCase()) t=1;
+    
+    if (t) choice+=words[index].charAt(i)+" ";
+    else 
+    {
+      choice+="_ ";
+      blank=1;
+    }
+  }   
+    
+  document.f.word.value=choice;
+    
+  if (!blank)
+  {
+    document.f.tried.value="   === You Win! ===";
+    document.f.score.value++;
+    running=0;
+  }
+} 
+
+
+function new_word(form)
+{
+  if(!running)
+  {
+    running=1;
+    failnum=0;
+    form.lives.value=failnum;
+    form.tried.value="";
+    form.word.value="";
+    index=Math.round(Math.random()*10000) % 100;
+    alpha[0]=words[index].charAt(0);
+    alpha[1]=words[index].charAt(words[index].length-1);
+    alpha_index=1;
+    bravo[0]=words[index].charAt(0);
+    bravo[1]=words[index].charAt(words[index].length-1);
+    bravo_index=1;
+    pick();
+  }
+  else advise("A word is already in play!");
+}
+
+function seek(letter)
+{
+  if (!running) advise(".....Click GO to start !");
+  else
+  {
+    t=0;
+    for (i=0; i<=bravo_index; i++)
+    {
+      if (bravo[i]==letter || bravo[i]==letter.toLowerCase()) t=1;
+    }
+
+    if (!t) 
+    {
+      document.f.tried.value+=letter+" "
+      bravo_index++;
+      bravo[bravo_index]=letter;
+      
+      for(i=0;i<words[index].length;i++)
+      if(words[index].charAt(i)==letter || words[index].charAt(i)==letter.toLowerCase()) t=1;
+      
+      if(t)
+      {
+        alpha_index++;
+        alpha[alpha_index]=letter;
+      }
+      else failnum++;
+  
+      document.f.lives.value=failnum;
+      if (failnum==6) 
+      {
+        document.f.tried.value="You lose - Try again!";
+        document.f.word.value=words[index];
+        document.f.score.value--;
+        running=0;
+      }
+      else pick();
+    }
+    else advise("Letter "+letter+" is already used!");
+  }
+}
+
+function advise(msg)
+{
+  if (!advising)
+  {
+    advising=-1;
+    savetext=document.f.tried.value;  
+    document.f.tried.value=msg;
+    window.setTimeout("document.f.tried.value=savetext; advising=0;",1000);
+  }
+}
+
+var words = new Array("","acrimonious","allegiance","ameliorate","annihilate","antiseptic","articulate","authoritative","benefactor","boisterous","breakthrough","carcinogenic","censorious","chivalrous","collarbone","commendable","compendium","comprehensive","conclusive","conscientious","considerate","deferential","denouement","determinate","diffidence","disruption","earthenware","elliptical","entanglement","escutcheon","extinguish","extradition","fastidious","flamboyant","forethought","forthright","gregarious","handmaiden","honeysuckle","hypocritical","illustrious","infallible","lumberjack","mischievous","mollycoddle","nimbleness","nonplussed","obliterate","obsequious","obstreperous","opalescent","ostensible","pandemonium","paraphernalia","pawnbroker","pedestrian","peremptory","perfunctory","pernicious","perpetrate","personable","pickpocket","poltergeist","precipitous","predicament","preposterous","presumptuous","prevaricate","propensity","provisional","pugnacious","ramshackle","rattlesnake","reciprocate","recrimination","redoubtable","relinquish","remonstrate","repository","reprehensible","resolution","resplendent","restitution","retaliation","retribution","saccharine","salubrious","skulduggery","skyscraper","soothsayer","tearjerker","transcribe","turpentine","unassuming","underscore","undertaker","underwrite","unobtrusive","vernacular","waterfront","watertight");
+
+</SCRIPT>
+
+
+<FORM NAME="f">
+
+<TABLE BGCOLOR=#C0C0C0 BORDER=1>
+ <TR>
+  <TD COLSPAN=4 ALIGN=RIGHT>
+   Score : <INPUT TYPE=TEXT NAME="score" VALUE="0" onfocus="score.blur();" SIZE=2>
+   <BR>
+   Fails (6): <INPUT TYPE=TEXT NAME="lives" VALUE="0" onfocus="lives.blur();" SIZE=2>  
+  </TD>
+  <TD COLSPAN=7 ALIGN=CENTER>
+   <INPUT TYPE=TEXT NAME="word" VALUE="    --- Hangman ---" onfocus="word.blur();" SIZE=25> 
+    <BR>
+   <INPUT TYPE=TEXT NAME="tried" VALUE="Click GO to get a word." onfocus="tried.blur();" SIZE=25>  
+  </TD>
+  <TD COLSPAN=2 ALIGN=CENTER>
+   <INPUT TYPE=BUTTON onclick="new_word(this.form);" VALUE=" GO ">   
+  </TD>
+ </TR>
+ <TR>
+  <TD><INPUT TYPE=BUTTON VALUE=" A "   onclick="seek('A');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" B "   onclick="seek('B');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" C "   onclick="seek('C');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" D "   onclick="seek('D');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" E "   onclick="seek('E');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" F "   onclick="seek('F');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" G "   onclick="seek('G');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" H "   onclick="seek('H');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" I   " onclick="seek('I');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" J  "  onclick="seek('J');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" K "   onclick="seek('K');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" L  "  onclick="seek('L');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" M "   onclick="seek('M');"></TD>
+ </TR>
+ <TR>
+  <TD><INPUT TYPE=BUTTON VALUE=" N "   onclick="seek('N');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" O "   onclick="seek('O');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" P "   onclick="seek('P');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" Q "   onclick="seek('Q');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" R "   onclick="seek('R');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" S "   onclick="seek('S');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" T "   onclick="seek('T');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" U "   onclick="seek('U');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" V "   onclick="seek('V');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" W "   onclick="seek('W');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" X  "  onclick="seek('X');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" Y "   onclick="seek('Y');"></TD>
+  <TD><INPUT TYPE=BUTTON VALUE=" Z  "  onclick="seek('Z');"></TD>
+ </TR>
+</TABLE>
+
+</FORM>
+
+<p align="center"><font face="arial" size="-2">This free script provided by</font><br>
+<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
+Kit</a></font></p>
+
+
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+var display_text  = "Sadly, Denmark is an unlikely place "
++ "to find gray elephants and orange kangaroos!  "
++ "     There are more cool stuff like this "
++ "throughout my site!  Check 'em out!!!!!!!!!!"
+var display_text; var place; var meter; 
+var out = " "; var place = 50;
+function scroll_text(){
+for (meter = 0; meter < place; meter++){
+out += " "
+}
+if (place >= 0)
+out += display_text
+else out = display_text.substring(-place,display_text.length)
+document.scroll_form.field.value = out
+out = " "
+place--
+if (place < -(display_text.length)){
+place = 50
+}
+setTimeout('scroll_text()',100)
+}
+// -->
+</SCRIPT> 
+<BODY>
+<CENTER>
+<TT>Please follow the instructions below carefully. Go through each step first before pressing the below button, or you'll only ruin everything!
+<P>
+<OL>
+<LI>Think of a number between 1 and 10.<P>
+<LI>Multiply the number by 9.<P>
+<LI>Add the digits of your result.<P>
+<LI>Subtract 5 from your new number.<P>
+<LI>Find the letter that corresponds to your number, if 1 = A, 2 = B, 3 = C, etc.<P>
+<LI>Think of a country that begins with your letter.<P>
+<LI>Write down the name of that country.<P>
+<LI>Think of an animal beginning with the second letter of your country.<P>
+<LI>Think of the color of that animal.<P>
+<LI>Write down the animal and its color.<P>
+<LI>Think of an animal that begins with the last letter of your country.<P>
+<LI>Think of a fruit that begins with the last letter of this second animal.<P>
+<LI>Write down the fruit and the animal.<P>
+</OL>
+<P>
+<P>
+When you are finished, touch analyze...
+<FORM name="scroll_form">
+<input type="button" name="button_one" value="Analyze..." onClick="scroll_text()">
+<input type="text" name="field" size="50"><p>
+</form>
+</CENTER>
+</BODY>
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Andrew Gacek (andrew@dgi.net) -->
+
+
+
+<!-- Begin--
+function fillall() {
+for (var i = 0; i < 24; i++) {
+document.lightsform.elements[i].checked=1;
+   }
+}
+function clearall() {
+for (var i = 0; i < 24; i++) {
+document.lightsform.elements[i].checked=0;
+   }
+}
+function level1() {
+clearall();
+document.lightsform.elements[10].checked=1;
+document.lightsform.elements[12].checked=1;
+document.lightsform.elements[14].checked=1;
+}
+function level2() {
+clearall();
+document.lightsform.elements[12].checked=1;
+document.lightsform.elements[16].checked=1;
+document.lightsform.elements[17].checked=1;
+document.lightsform.elements[18].checked=1;
+document.lightsform.elements[20].checked=1;
+document.lightsform.elements[21].checked=1;
+document.lightsform.elements[22].checked=1;
+document.lightsform.elements[23].checked=1;
+document.lightsform.elements[24].checked=1;
+}
+function level3() {
+fillall();
+document.lightsform.elements[4].checked=0;
+document.lightsform.elements[6].checked=0;
+document.lightsform.elements[7].checked=0;
+document.lightsform.elements[8].checked=0;
+document.lightsform.elements[11].checked=0;
+document.lightsform.elements[12].checked=0;
+document.lightsform.elements[13].checked=0;
+document.lightsform.elements[16].checked=0;
+document.lightsform.elements[17].checked=0;
+document.lightsform.elements[18].checked=0;
+document.lightsform.elements[24].checked=0;
+}
+function level4() {
+clearall();
+document.lightsform.elements[2].checked=1;
+document.lightsform.elements[6].checked=1;
+document.lightsform.elements[8].checked=1;
+document.lightsform.elements[10].checked=1;
+document.lightsform.elements[12].checked=1;
+document.lightsform.elements[14].checked=1;
+document.lightsform.elements[16].checked=1;
+document.lightsform.elements[18].checked=1;
+document.lightsform.elements[22].checked=1;
+ }
+function level5() {
+clearall();
+document.lightsform.elements[11].checked=1;
+document.lightsform.elements[16].checked=1;
+document.lightsform.elements[21].checked=1;
+}
+function checkall() {
+var win=1;
+for (var i = 0; i < 24; i++) {
+if (document.lightsform.elements[i].checked==1) {
+win=0;
+   }
+}
+if (win==1){
+alert("\nYou Won!!\n")
+   }
+}
+function check(v){
+q=5;
+w=1;
+row=parseInt(v/q)+w;
+if (isNaN(row)) {
+row=1;
+}
+intv = parseInt(v);
+a=eval(intv+q);
+b=eval(intv-q);
+c=eval(intv+w);
+d=eval(intv-w);
+if (a<0 || a>24){
+a=25;
+}
+if (b<0 || b>24){
+b=25;
+}
+if (c<0 || c>24){
+c=25;
+}
+if (d<0 || d>24){
+d=25;
+}
+kc = (parseInt(c/q)+w)
+kd = (parseInt(d/q)+w)
+kv = row;
+if (kc != kv){
+c=25;
+}
+if (kd != kv){
+d=25;
+}
+if (v==5) d=25; // correction for strange bug
+
+if (document.lightsform.elements[a].checked == 1) {
+document.lightsform.elements[a].checked=0;
+}
+else {
+document.lightsform.elements[a].checked=1;
+}
+if (document.lightsform.elements[b].checked == 1) {
+document.lightsform.elements[b].checked=0;
+}
+else {
+document.lightsform.elements[b].checked=1;
+}
+if (document.lightsform.elements[c].checked == 1) {
+document.lightsform.elements[c].checked=0;
+}
+else {
+document.lightsform.elements[c].checked=1;
+}
+if (document.lightsform.elements[d].checked == 1) {
+document.lightsform.elements[d].checked=0;
+}
+else {
+document.lightsform.elements[d].checked=1;
+}
+checkall();
+}
+//  End -->
+</script>
+</HEAD>
+<body>
+  <center>
+<form name=lightsform>
+<table colspec="l20 l20 l20 l20 l20" border=7>
+<tr>
+<td><input type=checkbox value=0 onClick="check(value)"></td>
+<td><input type=checkbox value=1 onClick="check(value)"></td>
+<td><input type=checkbox value=2 onClick="check(value)"></td>
+<td><input type=checkbox value=3 onClick="check(value)"></td>
+<td><input type=checkbox value=4 onClick="check(value)"></td>
+</tr>
+<tr>
+<td><input type=checkbox value=5 onClick="check(value)"></td>
+<td><input type=checkbox value=6 onClick="check(value)"></td>
+<td><input type=checkbox value=7 onClick="check(value)"></td>
+<td><input type=checkbox value=8 onClick="check(value)"></td>
+<td><input type=checkbox value=9 onClick="check(value)"></td>
+</tr>
+<tr>
+<td><input type=checkbox value=10 onClick="check(value)"></td>
+<td><input type=checkbox value=11 onClick="check(value)"></td>
+<td><input type=checkbox value=12 onClick="check(value)"></td>
+<td><input type=checkbox value=13 onClick="check(value)"></td>
+<td><input type=checkbox value=14 onClick="check(value)"></td>
+</tr>
+<tr>
+<td><input type=checkbox value=15 onClick="check(value)"></td>
+<td><input type=checkbox value=16 onClick="check(value)"></td>
+<td><input type=checkbox value=17 onClick="check(value)"></td>
+<td><input type=checkbox value=18 onClick="check(value)"></td>
+<td><input type=checkbox value=19 onClick="check(value)"></td>
+</tr>
+<tr>
+<td><input type=checkbox value=20 onClick="check(value)"></td>
+<td><input type=checkbox value=21 onClick="check(value)"></td>
+<td><input type=checkbox value=22 onClick="check(value)"></td>
+<td><input type=checkbox value=23 onClick="check(value)"></td>
+<td><input type=checkbox value=24 onClick="check(value)"></td>
+</tr>
+</table>
+<br>
+<table border=1>
+<tr>
+<td><a href="javascript:level1()">level 1</a></td>
+<td><a href="javascript:level2()">level 2</a></td>
+</tr>
+<tr>
+<td><a href="javascript:level3()">level 3</a></td>
+<td><a href="javascript:level4()">level 4</a></td>
+</tr>
+<tr>
+<td><a href="javascript:level5()">level 5</a></td>
+<td><input type="reset" value="clear"></td>
+</tr>
+</table>
+</body>
+
+
